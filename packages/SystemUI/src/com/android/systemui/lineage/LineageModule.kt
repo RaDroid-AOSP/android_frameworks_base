@@ -16,6 +16,7 @@
 
 package com.android.systemui.lineage
 
+import com.android.systemui.qs.tiles.SleepModeTile
 import com.android.systemui.qs.tileimpl.QSTileImpl
 import com.android.systemui.qs.tiles.AmbientDisplayTile
 import com.android.systemui.qs.tiles.AODTile
@@ -48,6 +49,12 @@ interface LineageModule {
     @IntoMap
     @StringKey(AODTile.TILE_SPEC)
     fun bindAODTile(aodTile: AODTile): QSTileImpl<*>
+
+     /** Inject SleepModeTile into tileMap in QSModule */
+     @Binds  
+     @IntoMap
+     @StringKey(SleepModeTile.TILE_SPEC)
+     fun bindSleepModeTile(sleepModeTile: SleepModeTile): QSTileImpl<*>
 
     /** Inject CaffeineTile into tileMap in QSModule */
     @Binds
