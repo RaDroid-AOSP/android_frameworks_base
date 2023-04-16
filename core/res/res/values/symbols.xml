@@ -5635,4 +5635,12 @@
      <java-symbol type="string" name="sleep_mode_notification_content" />
      <java-symbol type="string" name="sleep_mode_enabled_toast" />
      <java-symbol type="string" name="sleep_mode_disabled_toast" />
+
+     <!-- PowerOffAlarmService -->
+     <java-symbol type="string" name="notification_channel_poweroff_alarm" />
+     <java-symbol type="string" name="poweroff_alarm_title" />
+     <java-symbol type="string" name="poweroff_alarm_body" />
+     <java-symbol type="drawable" name="ic_alarm_on" />
+ 
 </resources>
+
