@@ -196,6 +196,8 @@ import com.android.systemui.statusbar.KeyguardIndicationController;
 import com.android.systemui.statusbar.LiftReveal;
 import com.android.systemui.statusbar.LightRevealScrim;
 import com.android.systemui.statusbar.LockscreenShadeTransitionController;
+import com.android.systemui.statusbar.NotificationListener;
+import com.android.systemui.statusbar.OnGoingActionProgressController;
 import com.android.systemui.statusbar.NotificationLockscreenUserManager;
 import com.android.systemui.statusbar.NotificationMediaManager;
 import com.android.systemui.statusbar.NotificationPresenter;
@@ -389,6 +391,10 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
     private final LightRevealScrim mLightRevealScrim;
     private PowerButtonReveal mPowerButtonReveal;
 
+
+    private OnGoingActionProgressController mOnGoingActionProgressController = null;
+
+     @Inject public NotificationListener mNotificationListener;
     /**
      * Whether we should delay the wakeup animation (which shows the notifications and moves the
      * clock view). This is typically done when waking up from a 'press to unlock' gesture on a
@@ -1245,6 +1251,11 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
                     mShadeSurface.updateExpansionAndVisibility();
                     setBouncerShowingForStatusBarComponents(mBouncerShowing);
                     checkBarModes();
+                    mOnGoingActionProgressController =
+                             new OnGoingActionProgressController(
+                                     mContext,
+                                     statusBarViewController.getOngoingActionProgressGroup(),
+                                     mNotificationListener);
                 });
         mStatusBarInitializer.initializeStatusBar();
 
