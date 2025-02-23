@@ -149,6 +149,7 @@ public class InternetDialogDelegate implements
     protected Button mShareWifiButton;
     private Button mAirplaneModeButton;
     private Drawable mBackgroundOn;
+    private Drawable mSecondaryBackgroundOn;
     private final KeyguardStateController mKeyguard;
     @Nullable
     private Drawable mBackgroundOff = null;
@@ -300,6 +301,7 @@ public class InternetDialogDelegate implements
         mInternetDialogTitle.setText(getDialogTitleText());
         mInternetDialogTitle.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
         mBackgroundOff = context.getDrawable(R.drawable.internet_dialog_selected_effect);
+        mSecondaryBackgroundOn = mBackgroundOn.getConstantState().newDrawable().mutate();
         setOnClickListener(dialog);
         mTurnWifiOnLayout.setBackground(null);
         mAirplaneModeButton.setVisibility(
@@ -575,7 +577,7 @@ public class InternetDialogDelegate implements
                         R.id.secondary_mobile_network_layout);
                 mSecondaryMobileNetworkLayout.setOnClickListener(
                         this::onClickConnectedSecondarySub);
-                mSecondaryMobileNetworkLayout.setBackground(mBackgroundOn);
+                mSecondaryMobileNetworkLayout.setBackground(mSecondaryBackgroundOn);
 
                 TextView mSecondaryMobileTitleText = mDialogView.requireViewById(
                         R.id.secondary_mobile_title);
