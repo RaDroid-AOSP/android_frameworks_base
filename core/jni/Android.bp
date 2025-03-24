@@ -478,10 +478,6 @@ cc_library_shared_for_libandroid_runtime {
             ldflags: ["-fsplit-machine-functions"],
         }
     },
-
-    lto: {
-        thin: true,
-    },
 }
 
 cc_library_shared {
