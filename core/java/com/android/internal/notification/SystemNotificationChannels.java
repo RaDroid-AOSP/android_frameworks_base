@@ -66,7 +66,6 @@ public class SystemNotificationChannels {
     @Deprecated public static String SYSTEM_CHANGES_DEPRECATED = "SYSTEM_CHANGES";
     public static String SYSTEM_CHANGES = "SYSTEM_CHANGES_ALERTS";
     public static String DO_NOT_DISTURB = "DO_NOT_DISTURB";
-    public static String SLEEP = "SLEEP";
     public static String ACCESSIBILITY_MAGNIFICATION = "ACCESSIBILITY_MAGNIFICATION";
     public static String ACCESSIBILITY_SECURITY_POLICY = "ACCESSIBILITY_SECURITY_POLICY";
     public static String ABUSIVE_BACKGROUND_APPS = "ABUSIVE_BACKGROUND_APPS";
@@ -198,11 +197,6 @@ public class SystemNotificationChannels {
                 context.getString(R.string.notification_channel_do_not_disturb),
                 NotificationManager.IMPORTANCE_LOW);
         channelsList.add(dndChanges);
-
-         NotificationChannel sleepModeChanges = new NotificationChannel(SLEEP,
-                 context.getString(R.string.notification_channel_sleep),
-                 NotificationManager.IMPORTANCE_LOW);
-         channelsList.add(sleepModeChanges);
 
         final NotificationChannel newFeaturePrompt = new NotificationChannel(
                 ACCESSIBILITY_MAGNIFICATION,
